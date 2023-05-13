@@ -1,0 +1,49 @@
+body {
+    background-image: url(bg.jpg);
+  
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
+  .data {
+    display: inline-block;
+    border: 2px solid;
+    margin: 0px 434px;
+    padding: 2px 47px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 2px 5px 10px 1px;
+  }
+  .B {
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(red, blue);
+    color: white;
+    box-shadow: 1px 1px 1px 1px;
+  }
+  .B:hover {
+    background: linear-gradient(blue, black);
+  }
+  #t1 {
+    box-shadow: -1px 1px 6px 2px;
+  }
+  @media only screen and (min-width: 200px) and (max-width:1200px){
+    .nav1{
+      width: 1500px;
+    }
+    
+  
+  
+  }
+  @media screen and (max-width:990px) {
+    .iohome{
+      padding-left: 0px;
+  
+    }
+    .home{
+      margin-top: -29px;
+      margin-left: 19px;
+  
+    }
+    
+  }
