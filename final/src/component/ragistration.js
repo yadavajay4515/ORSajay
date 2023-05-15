@@ -4,7 +4,8 @@ import axios from "axios";
 
 export default function Ragistration() {
   const [user, setuser] = useState({
-    name: "",
+    fname: "",
+    lname:"",
     email: "",
     password: "",
     repassword: "",
@@ -23,7 +24,8 @@ export default function Ragistration() {
   const register = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:9002/auth/register", user).then((res) => {
+    axios.post("http://localhost:9002/auth/register", user)
+    .then((res) => {
       console.log(res);
       if (res.data.success) {
         sessionStorage.setItem("token", res.data.token);
@@ -47,7 +49,7 @@ export default function Ragistration() {
         <form onSubmit={register}>
           <table>
             <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
-              name
+            FirstName
             </label>
             <p style={{ marginBottom: "0rem" }}>
               <input
@@ -56,8 +58,8 @@ export default function Ragistration() {
                 type="text"
                 id="t1"
                 placeholder="Enter your name"
-                name="name"
-                value={user.name}
+                name="fname"
+                value={user.fname}
                 onChange={handalevent}
                 required
               />{" "}
@@ -74,8 +76,42 @@ export default function Ragistration() {
               {" "}
             </div>
 
+
+
             <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
-              email
+          LastName
+            </label>
+            <p style={{ marginBottom: "0rem" }}>
+              <input
+                className="form-control"
+                style={{ width: "230px" }}
+                type="text"
+                id="t1"
+                placeholder="Enter your name"
+                name="lname"
+                value={user.lname}
+                onChange={handalevent}
+                required
+              />{" "}
+            </p>
+            <div
+              style={{
+                textAlign: "center",
+                padding: "0px 0px",
+                color: "rgb(255 100 114)",
+                height: "18px",
+                width: "199px",
+              }}
+            >
+              {" "}
+            </div>
+
+
+
+
+
+            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
+              Email
             </label>
             <p style={{ marginBottom: "0rem" }}>
               <input

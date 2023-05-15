@@ -53,7 +53,8 @@ export default function Adduser() {
           <thead className="table-dark">
             <tr >
               <th scope="col">Id</th>
-              <th scope="col">Name</th>
+              <th scope="col">Frist name</th>
+              <th scope="col">Last name</th>
               <th scope="col">Email</th>
         
      
@@ -67,7 +68,8 @@ export default function Adduser() {
 
               return <tr key={i}>
                 <td>{i + 1}</td>
-                <td>{data.name}</td>
+                <td>{data.fname}</td>
+                <td>{data.lname}</td>
                 <td>{data.email}</td>
              
             

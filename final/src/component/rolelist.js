@@ -66,7 +66,7 @@ export default function Rolelist() {
       <div>
        
        
-        <table className="table table-success my-5">
+      <table  style={{ width: "90%", margin: "90px 90px" }} className="table table-success table-hover table-bordered border-success"> 
           <thead className="table-dark">
             <tr >
               <th scope="col">Id</th>

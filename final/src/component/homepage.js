@@ -12,14 +12,19 @@ import Rolelist from "./rolelist";
 import Adduser from "./Adduser";
 import NoteState from "../context/notes/NoteState";
 
+
 // import Edituser from './Edituser';
 export default function Homepage() {
+
+
+
   
   return (
     <>
       <NoteState>
         <Router>
           <Navbar2 />
+       
           <Switch>
             <Route exact path="/addstudent" component={Addstudent} />
             <Route exact path="/studentlist" component={Studentlist} />
@@ -43,6 +48,7 @@ export default function Homepage() {
           </Switch>
         </Router>
       </NoteState>
+      
     </>
   );
 }

@@ -60,38 +60,7 @@ export default function Collegelist() {
               <h1 className="modal-title fs-5" id="exampleModalLabel">Update student</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            {/* <div className="modal-body">
-
-              <form onSubmit={handleClick} className='my-3'>
-                <div className="mb-3">
-                  <label htmlFor="Ufirstname" className="form-label">Firstname</label>
-                  <input type="text" className="form-control" id="Ufirstname" name='Ufirstname' aria-describedby="emailHelp" value={addstudent.Ufirstname} onChange={onChange} minLength={2} required />
-
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="Ulastname" className="form-label">Lastname</label>
-                  <input type="text" className="form-control" id="Ulastname" name='Ulastname' value={addstudent.Ulastname} onChange={onChange} minLength={2} required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="Uemail" className="form-label">Email</label>
-                  <input type="text" className="form-control" id="Uemail" name='Uemail' value={addstudent.Uemail} onChange={onChange} minLength={4} required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="UmobileNo" className="form-label">MobileNo</label>
-                  <input type="text" className="form-control" id="UmobileNo" name='UmobileNo' value={addstudent.UmobileNo} minLength={10} onChange={onChange} required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="UcollegeId" className="form-label">CollegeId</label>
-                  <input type="text" className="form-control" id="UcollegeId" name='UcollegeId' value={addstudent.UcollegeId} minLength={3} onChange={onChange} required />
-                </div>
-
-
-            <div className="modal-footer">
-              <button ref={refclose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button  disabled={addstudent.Ufirstname.length<5 ||addstudent.Ulastname.length<5} type="submit" className="btn btn-primary">Update student</button>
-            </div>
-              </form>
-            </div> */}
+     
           </div>
         </div>
       </div>
@@ -99,7 +68,7 @@ export default function Collegelist() {
       <div>
        
        
-        <table className="table table-success my-5" >
+        <table  style={{ width: "90%", margin: "90px 90px" }} className="table table-success table-hover table-bordered border-success"> 
           <thead className="table-dark">
             <tr >
               <th scope="col">Id</th>

@@ -21,6 +21,9 @@ export default function Ragistration() {
     mobileno: "",
     collegeid: "",
   });
+
+const [msg, setmsg] = useState({ msgs: "", error: "" });
+
   const handalevent = (e) => {
   const { name, value } = e.target;
     setuser({
@@ -50,11 +53,23 @@ export default function Ragistration() {
         "Content-Type": "application/json"
   }})
     .then((res) => {
-     alert("update");
       console.log(res)
+     alert("update");
+     setuser({ firstname: "", lastname: "", email: "", mobileno: "", collegeid: "" });
 
     })
   };
+
+
+        // .then((res) => {
+      //   console.log(res);
+
+      //   if(res.data.success){
+      //     alert("addstudent success fully")
+      //     setAddcollege({ name: "", phoneno: "", address: "", city: "", state: "" });
+      //   }
+       
+      // });
 
   const register = (e) => {
     e.preventDefault();
@@ -69,7 +84,14 @@ export default function Ragistration() {
         console.log(res);
 
         if(res.data.success){
-          alert("addstudent success fully")
+          // alert("addstudent success fully")
+          setmsg({ error: "" });
+          setmsg({ msgs: "successfully register" });
+          setuser({ firstname: "", lastname: "", email: "", mobileno: "", collegeid: "" });
+        }
+        if (res.data.error) {
+          setmsg({ msgs: "" });
+          setmsg({ error: res.data.error });
         }
        
       });
@@ -97,6 +119,10 @@ export default function Ragistration() {
         })()
 
       }
+
+<p style={{ color: "green" }}>{msg.msgs}</p>
+        <p style={{ color: "red" }}>{msg.error}</p>
+
         <form onSubmit={register}>
           <table>
             <label for="inputEmail3" className="col-sm-2 col-form-label">

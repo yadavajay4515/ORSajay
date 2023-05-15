@@ -9,7 +9,7 @@ const User = require("../models/User");
 var bcrypt = require("bcryptjs");
 
 router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { fname,lname, email, password } = req.body;
   // var msg=[];
   // var msg1,msg2,msg3;
   // console.log(req.body.name)
@@ -46,7 +46,8 @@ let success=false;
     var secPass = await bcrypt.hash(password, salt);
 
     user = await User.create({
-      name: name,
+      fname: fname,
+      lname: lname,
       email: email,
       password: secPass,
     });
@@ -71,16 +72,6 @@ let success=false;
 
 
 
-router.get( "/getragisterdata" ,async(req, res) => {
-  try {
-      const user = await User.find();
-      res.json(user);
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).send("Internal Server Error");
-    }
-});
-
 
 router.post(
   "/login",
@@ -96,7 +87,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
+    
     const { email, password } = req.body;
     console.log(req.body);
     try {
@@ -135,16 +126,75 @@ router.post(
 );
 
 // ROUTE 2: Authenticate a User using: POST "/api/auth/login". No login required
-router.post("/getuser", fetchuser, async (req, res) => {
+// router.post("/getuser", fetchuser, async (req, res) => {
+//   try {
+//     userId = req.user.id;
+//     const user = await User.findById(userId).select("-password");
+//     console.log(user);
+//     res.send(user);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
+
+
+
+
+// authtoken vala data sow karega
+
+// all data show the Adduser commponent
+router.get( "/getragisterdata" ,async(req, res) => {
   try {
-    userId = req.user.id;
-    const user = await User.findById(userId).select("-password");
-    console.log(user);
-    res.send(user);
+    const user = await User.find();
+    res.json(user);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
+
+// router.get("/getuser/:userid",fetchuser,async(req, res) => {
+//     const userid = req.params.userid;
+//   console.log(userid);
+//      let success=false;
+// try {
+//   const user=await User.findById(userid);
+//   success=true;
+//   res.json({success,user});
+// } catch (error) {
+//   res.json({success, message: error });
+// }
+// }
+// );
+
+// router.get('/fetchstudent',fetchuser, async (req, res) => {
+//   try {
+//       console.log(req.user1.id);
+//       const student = await User.find({user: req.user1.id });
+//       res.json(student)
+//   } catch (error) {
+//       console.error(error.message);
+//       res.status(500).send("Internal Server Error");
+//     }
+// })
+
+
+
+router.post('/getregis', fetchuser, async (req, res) => {
+  try {
+    const userid = req.user1.id;
+    const user = await User.findById(userid).select("-password");
+    res.send(user);
+} catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+}
+})
+
+
+
+
 
 module.exports = router;

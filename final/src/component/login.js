@@ -1,13 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState} from "react";
 import axios from "axios";
 import ReactDOM from "react-dom/client";
 import Homepage from "./homepage";
 
 export default function Login() {
   const [user, setUser] = useState({
-    email: "y@gmail.com",
-    password: "123",
+    email: "",
+    password: "",
 
   });
   const [error, setError] = useState();
@@ -15,6 +15,8 @@ export default function Login() {
 
     setUser({...user, [e.target.name]: e.target.value});
   };
+
+
   const login = (e) => {
     e.preventDefault();
 
@@ -34,6 +36,38 @@ export default function Login() {
   
     });
   };
+
+  ///////////////////////////////////////////////
+
+
+
+
+  
+  // useEffect(() => {
+  //   student();
+  // }, []);
+
+
+
+
+
+
+  // const student = () => {
+  //   axios.post("http://localhost:9002/auth/getregis",user,{
+  //     headers: {
+  //       "auth-token":sessionStorage.getItem("token"),
+  //         "Content-Type": "application/json"
+  //   }
+  //   })
+  //     .then((res) => {
+  //     console.log(res)
+  //     setUser(res.data);
+  //   });
+  // };
+
+
+
+
   
   return (
     <>
@@ -65,7 +99,7 @@ export default function Login() {
             <label htmlFor="inputPassword3" className="col-sm-2 col-form-label ">
               Password
             </label>
-            <p style={{ marginBottom: "0rem" }}>
+            <p style={{ marginTop: "-1rem" }}>
               <input
                 className="form-control my-4"
                 style={{ width: "240px" }}

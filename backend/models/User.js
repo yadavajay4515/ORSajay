@@ -4,9 +4,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 // login registration schema 
 const UserSchema = new Schema({
-    name:{
+    fname:{
         type: String,
         required: true
+        
+    },
+    lname:{
+        type: String,
+        required: true
+        
     },
     email:{
         type: String,

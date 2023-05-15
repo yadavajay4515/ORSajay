@@ -83,21 +83,51 @@ export default function Addrole() {
 
   return (
     <div className="container my-4" >
-    <h1 style={{marginLeft:"417px"}}>Add Role</h1>
-    <form  className='my-3' style={{marginLeft:"400px"}}>
+      <center>
+        {
+          (()=>{
+            if(_id){
+              return (
+                <h2>update role</h2>
+              )
+            }
+            if(!_id){
+              return(
+
+                <h2>Add Role</h2>
+              )
+            }
+          })()
+        }
+      </center>
+    
+    <form  className='my-3' style={{marginLeft:"400px"}}  onSubmit={ register}>
         <div className="mb-3">
             <label htmlFor="firstname" className="form-label">Name</label>
-            <input type="text" className="form-control" id="firstname" name='Name' value={addrole.Name} onChange={handalevent} style={{width:"40%"}} aria-describedby="emailHelp"   minLength={2} required />
+            <input type="text" className="form-control" id="firstname" name='Name' placeholder='enter the name' value={addrole.Name} onChange={handalevent} style={{width:"40%"}} aria-describedby="emailHelp"   minLength={2}  required />
 
         </div>
         <div className="mb-3">
             <label htmlFor="lastname" className="form-label">Discription</label>
-            <input type="text" className="form-control" id="lastname" name='Discription' value={addrole.Discription} onChange={handalevent} style={{width:"40%"}}   minLength={2} required />
+            <input type="text" className="form-control" id="lastname" name='Discription' placeholder='enter the Discription' value={addrole.Discription} onChange={handalevent} style={{width:"40%"}}   minLength={2} required />
         </div>
-     
+       {
+        (()=>{
+          if(_id){
+            return (
+      <button type="submit" className="btn btn-primary"  style={{width:"295px"}}   onClick={ Update}>Update</button>
+            )
+          }
+          if(!_id){
+             return (
+              <button type="submit" className="btn btn-primary"  style={{width:"295px"}}  >Submit</button>
+             )
+          }
+        })()
+       }
 
-        <button type="submit" className="btn btn-primary" onClick={ register}>Submit</button>
-        <button type="submit" className="btn btn-primary" style={{marginLeft:"133px"}}   onClick={ Update}>Update</button>
+      
+        
     </form>
 </div>
   )
